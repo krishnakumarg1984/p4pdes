@@ -1,0 +1,285 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build & run (C18 std)",
+      "detail": "Use the simple 'c'-tool to build & run as a script",
+      "type": "shell",
+      "linux": {
+        "command": "c",
+        "args": [
+          "${file}",
+          "-pedantic-errors", // disable compiler extensions
+          "-pipe",
+          "-std=c18",
+          "-Wall",
+          "-Wcast-align",
+          "-Wcast-qual",
+          "-Wconversion",
+          "-Wdouble-promotion",
+          // "-Wduplicated-branches", // not in clang
+          // "-Wduplicated-cond",  // not in clang
+          "-Wextra",
+          "-Wfloat-equal",
+          "-Wformat=2",
+          "-Wformat-signedness",
+          // "-Wformat-truncation=2", // not in clang
+          "-Wframe-larger-than=5000",
+          // "-Wjump-misses-init", // not in clang
+          // "-Wlogical-op", // not in clang
+          "-Wmissing-prototypes",
+          "-Wnull-dereference",
+          // "-Wno-unused-parameter",
+          // "-Wno-unused-function",
+          // "-Wno-sign-conversion",
+          "-Wpedantic",
+          "-Wshadow",
+          "-Wstack-usage=10000",
+          "-Wstrict-aliasing",
+          "-Wstrict-prototypes",
+          "-Wswitch-default",
+          "-Wswitch-enum",
+          // "-Wsync-nand", // not in clang
+          // "-Wtrampolines", // not in clang
+          "-Wundef",
+          "-Wunused",
+          "-Wunused-macros",
+          "-Wvla-larger-than=0",
+          "-O0",
+          "-lm",
+          "-g",
+          "-ggdb",
+          "-fasynchronous-unwind-tables",
+          "-fexceptions",
+          "-fno-omit-frame-pointer",
+          "-fno-sanitize-recover",
+          "-fsanitize=address", // not working in clang
+          // "-fsanitize=integer", // unrecognised (by gcc only?)
+          "-fsanitize=float-cast-overflow",
+          "-fsanitize=float-divide-by-zero",
+          "-fsanitize=signed-integer-overflow",
+          "-fsanitize=undefined", // not working in clang
+          "-fstack-clash-protection", // not recognised by clang
+          "-fstack-protector-all",
+          "-fstack-protector-strong",
+          "-fstrict-aliasing",
+          "-fvisibility=hidden",
+          "-lm",
+          "-DDEBUG",
+          "-DDBG_MACRO_DISABLE"
+        ]
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": "$gcc",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run compiled executable",
+      "detail": "Must be present in current directory",
+      "type": "shell",
+      "linux": {
+        "command": "${fileDirname}/${fileBasenameNoExtension}.x"
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      }
+    },
+    {
+      "label": "Clean",
+      "detail": "Remove the compiled executable file from the current directory",
+      "type": "shell",
+      "linux": {
+        "command": "rm",
+        // "isBackground": true,
+        "args": [
+          "-f",
+          "${fileDirname}/${fileBasenameNoExtension}.x"
+        ]
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      }
+    },
+    {
+      "label": "Compile file to executable with gcc (Debug build, C18 std)",
+      "type": "shell",
+      "linux": {
+        "command": "gcc",
+        "args": [
+          "-pedantic-errors", // disable compiler extensions
+          "-pipe",
+          "-std=c18",
+          "-Wall",
+          "-Wcast-align",
+          "-Wcast-qual",
+          "-Wconversion",
+          "-Wdouble-promotion",
+          "-Wduplicated-branches", // not in clang
+          "-Wduplicated-cond", // not in clang
+          "-Wextra",
+          "-Wfloat-equal",
+          "-Wformat=2",
+          "-Wformat-signedness", // not in clang
+          "-Wformat-truncation=2",
+          "-Wframe-larger-than=5000",
+          "-Wjump-misses-init", // not in clang
+          "-Wlogical-op", // not in clang
+          "-Wmissing-prototypes",
+          "-Wnull-dereference",
+          // "-Wno-unused-parameter",
+          // "-Wno-unused-function",
+          // "-Wno-sign-conversion",
+          "-Wpedantic",
+          "-Wshadow",
+          "-Wshift-overflow=2", // default in clang
+          "-Wstack-usage=10000",
+          "-Wstrict-aliasing",
+          "-Wstrict-prototypes",
+          "-Wswitch-default",
+          "-Wswitch-enum",
+          "-Wsync-nand", // not in clang
+          "-Wtrampolines", // not in clang
+          "-Wundef",
+          "-Wunused",
+          "-Wunused-macros",
+          "-Wvla-larger-than=0",
+          "-O0",
+          "-g",
+          "-ggdb",
+          "-fanalyzer",
+          "-fanalyzer-transitivity",
+          "-fasynchronous-unwind-tables",
+          "-fexceptions",
+          "-fno-omit-frame-pointer",
+          "-fno-sanitize-recover",
+          "-fsanitize=address",
+          // "-fsanitize=integer", // unrecognised (by gcc only?)
+          "-fsanitize=float-cast-overflow",
+          "-fsanitize=float-divide-by-zero",
+          "-fsanitize=signed-integer-overflow",
+          "-fsanitize=undefined",
+          // "-fsanitize=trap", // unrecognised (by gcc only?)
+          "-fstack-clash-protection",
+          "-fstack-protector-all",
+          "-fstack-protector-strong",
+          "-fstrict-aliasing",
+          "-fvisibility=hidden",
+          "-DDEBUG",
+          "-DDBG_MACRO_DISABLE",
+          "-lm",
+          "${file}",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}.x"
+        ]
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": "$gcc",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Compile file to executable with clang (C18 debug build)",
+      "type": "shell",
+      "linux": {
+        "command": "clang",
+        "args": [
+          "-pedantic-errors", // disable compiler extensions
+          "-pipe",
+          "-std=c18",
+          "-Wall",
+          "-Wcast-align",
+          "-Wcast-qual",
+          "-Wconversion",
+          "-Wdouble-promotion",
+          // "-Wduplicated-branches",  // not in clang
+          // "-Wduplicated-cond",  // not in clang
+          "-Wextra",
+          "-Wfloat-equal",
+          "-Wformat=2",
+          // "-Wformat-truncation=2", // not in clang
+          "-Wframe-larger-than=5000",
+          // "-Wjump-misses-init", // not in clang
+          // "-Wlogical-op", // not in clang
+          "-Wmissing-prototypes",
+          "-Wnull-dereference",
+          // "-Wno-unused-parameter",
+          // "-Wno-unused-function",
+          // "-Wno-sign-conversion",
+          "-Wpedantic",
+          "-Wshadow",
+          "-Wstrict-aliasing",
+          "-Wstrict-prototypes",
+          "-Wswitch-default",
+          "-Wswitch-enum",
+          // "-Wsync-nand", // not in clang
+          // "-Wtrampolines", // not in clang
+          "-Wundef",
+          "-Wunused",
+          "-Wunused-macros",
+          "-O0",
+          "-g",
+          "-ggdb",
+          "-fasynchronous-unwind-tables",
+          "-fexceptions",
+          "-fno-omit-frame-pointer",
+          "-fno-sanitize-recover",
+          "-fsanitize=address", // not working in clang
+          "-fsanitize=integer", // unrecognised (by gcc only?)
+          "-fsanitize=float-cast-overflow",
+          "-fsanitize=float-divide-by-zero",
+          "-fsanitize=signed-integer-overflow",
+          "-fsanitize=undefined", // not working in clang
+          // "-fsanitize=trap", // not recognised by clang
+          "-fstack-clash-protection", // not recognised by clang
+          "-fstack-protector-all",
+          "-fstack-protector-strong",
+          "-fstrict-aliasing",
+          "-fvisibility=hidden",
+          "-DDEBUG",
+          "-DDBG_MACRO_DISABLE",
+          "${file}",
+          "-lm",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}.x"
+        ]
+      },
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": "$gcc",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Clean & run after debug build (C18 std) with gcc",
+      "dependsOn": [
+        "Clean",
+        "Compile file to executable with gcc (C18 debug build)",
+        "Run compiled executable"
+      ],
+      "dependsOrder": "sequence"
+    },
+    {
+      "label": "Clean & run after debug build (C18 std) with clang",
+      "dependsOn": [
+        "Clean",
+        "Compile file to executable with clang (C18 debug build)",
+        "Run compiled executable"
+      ],
+      "dependsOrder": "sequence"
+    }
+  ]
+}

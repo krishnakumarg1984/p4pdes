@@ -1,0 +1,34 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc-12",
+      "-g",
+      "-std=c99",
+      "-I/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/petsc-3.20.0-zrvpjbnj5om4pjy3hlpbua3aln7fcuoo/include",
+      "-I/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/hypre-2.29.0-nqv4xzcef2z6ps2gmuxctzvpkgoasb5g/include",
+      "-I/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/suite-sparse-5.13.0-6svt4hlzh664r673i3gmlgilyvri33ow/include",
+      "-I/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/mumps-5.5.1-qpw7iyz5m324zwdvqhwh727wae7ev2cs/include",
+      "-I/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/superlu-dist-8.1.2-r7t4oplglh3bkzz7w7i47g7voffkknzd/include",
+      "-I/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/parmetis-4.0.3-5g4sjzrr5d7zruitxdd64czouozh376v/include",
+      "-I/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/metis-5.1.0-ib572zf62bsshyyxuebpdlj4cafbb3he/include",
+      "-I/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/hdf5-1.14.2-jwzjilbxnxwqykgbwphlthezbjz3bepy/include",
+      "-O2",
+      "-g",
+      "-c",
+      "-I/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/openmpi-4.1.5-ivqmarf72me6btl5b5ior3tkh5ferdyg/include",
+      "-I",
+      "/home/krishnakumar/intel/oneapi/tbb/2021.10.0/env/../include",
+      "-I",
+      "/home/krishnakumar/intel/oneapi/mkl/2023.2.0/include",
+      "-I",
+      "/home/krishnakumar/intel/oneapi/dpl/2022.2.0/linux/include",
+      "-I",
+      "/home/krishnakumar/intel/oneapi/dev-utilities/2021.10.0/include",
+      "-I",
+      "/home/krishnakumar/intel/oneapi/compiler/2023.2.0/linux/lib/oclfpga/include",
+      "hello.c"
+    ],
+    "directory": "/home/krishnakumar/Documents/learning_training/petsc_learning/parallel-programming-public/exercises/exercises-petsc-c",
+    "file": "/home/krishnakumar/Documents/learning_training/petsc_learning/parallel-programming-public/exercises/exercises-petsc-c/hello.c"
+  }
+]
