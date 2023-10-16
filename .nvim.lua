@@ -22,7 +22,7 @@ null_ls.register {
   -- diagnostics.clang_check,
   diagnostics.checkmake,
   diagnostics.cppcheck,
-  -- diagnostics.cpplint,
+  diagnostics.cpplint,
   formatting.clang_format,
 }
 null_ls.enable {}
