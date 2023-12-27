@@ -1,0 +1,21 @@
+{
+  "python.languageServer": "Jedi",
+  "jedi.executable.command": "/home/krishnakumar/sw_src/spack/var/spack/environments/spackenv_petsc_3p20/.spack-env/view/bin/jedi-language-server",
+  "cmake.configureOnOpen": false,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "python.formatting.provider": "none",
+  "python.pythonPath": "/home/krishnakumar/sw_src/spack/var/spack/environments/spackenv_petsc_3p20/.spack-env/view/bin/python3",
+  "python.autoComplete.extraPaths": [
+    "/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/py-petsc4py-3.20.0-lcgtf3nuegdp263i22mhiwwxvmg2vty4/lib/python3.11/site-packages",
+    "/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/py-petsc4py-3.20.0-lcgtf3nuegdp263i22mhiwwxvmg2vty4/lib/python3.11/site-packages/petsc4py/"
+  ],
+  "python.analysis.extraPaths": [
+    "/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/py-petsc4py-3.20.0-lcgtf3nuegdp263i22mhiwwxvmg2vty4/lib/python3.11/site-packages",
+    "/home/krishnakumar/sw_src/spack/opt/spack/linux-pop22-icelake/gcc-12.3.0/py-petsc4py-3.20.0-lcgtf3nuegdp263i22mhiwwxvmg2vty4/lib/python3.11/site-packages/petsc4py/"
+  ],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.pylsp.plugins.pyflakes.enabled": false
+}

@@ -1,0 +1,7 @@
+select = ["E", "F", "B", "Q", "N", "A", "COM", "C4", "EM", "EXE", "ISC", "ICN", "G", "PIE", "PYI", "Q", "RET", "SLF", "SIM", "TID", "TCH", "ARG", "PTH", "ERA", "PD", "PL", "PLE", "PLR", "PLW", "TRY", "NPY", "RUF"]
+
+# E501 line too long
+# E722 do not use bare 'except' pycodestyle
+# ERA001 Found commented-out code ruff
+# W503 line break before binary operator
+ignore = ["E501", "E722", "PLR2004", "ERA001", "E266"]
